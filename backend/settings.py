@@ -30,8 +30,22 @@ SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID')
 SPOTIFY_CLIENT_SECRET = config('SPOTIFY_CLIENT_SECRET')
 REDIRECT_URI = config('REDIRECT_URI')
 
-ALLOWED_HOSTS = []
+# ALLOWED HOSTS
+FRONTEND_DOMAIN = config('FRONTEND_DOMAIN')
+DNS_1 = config('DNS_1')
+DNS_2 = config('DNS_2')
+EC2_PUBLIC_IP = config('EC2_PUBLIC_IP')
+EC2_PUBLIC_DNS = config('EC2_PUBLIC_DNS')
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    FRONTEND_DOMAIN,
+    DNS_1,
+    DNS_2,
+    EC2_PUBLIC_IP,
+    EC2_PUBLIC_DNS
+]
 
 # Application definition
 
@@ -62,7 +76,9 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3001",
+    FRONTEND_DOMAIN,
+    DNS_1,
+    DNS_2
 ]
 
 ROOT_URLCONF = 'backend.urls'

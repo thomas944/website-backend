@@ -51,8 +51,8 @@ def preprocess_image(image: Image.Image):
     ])
 
     image = image.convert('L') 
-    image_resized = image.resize((28, 28))
-    image_resized.save("debug_input.png") 
+    #image_resized = image.resize((28, 28))
+    #image_resized.save("debug_input.png") 
 
     return transform(image).unsqueeze(0)
 
